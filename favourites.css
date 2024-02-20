@@ -1,4 +1,3 @@
-/* Importing google font -> Overpass */
 @import url('https://fonts.googleapis.com/css2?family=Overpass:wght@200;300;400;500;600;700&display=swap');
 
 * {
@@ -19,12 +18,6 @@ nav {
     color: #fff;
     padding: 15px;
 }
-
-#logo {
-    display: flex;
-    align-items: center;
-}
-
 a {
     text-decoration: none;
     color: #fff;
@@ -38,17 +31,12 @@ a {
     justify-content: space-evenly;
 }
 
-.movie-card {
-    height: 250px;
-    width: 200px;
-    cursor: pointer;
-    transition: all .3s ease-in-out;
-}
-.movie-card:hover{
+.movie-card:hover {
     transform: scale(1.15, 1.15);
 }
-.poster{
-    object-fit: fill;
+
+.poster {
+    object-fit: cover;
     width: 100%;
     height: 100%;
 }
@@ -59,39 +47,43 @@ a {
         grid-template-columns: auto auto auto auto;
         gap: 2rem 1rem;
     }
+
     .movie-card {
         height: 250px;
         width: 200px;
     }
 }
 
-@media (max-width: 850px){
-    #wrapper{
+@media (max-width: 850px) {
+    #wrapper {
         grid-template-columns: auto auto auto;
         gap: 2rem 1rem;
     }
+
     .movie-card {
         height: 200px;
         width: 150px;
     }
 }
 
-@media(max-width: 450px) {
-    #wrapper{
+@media (max-width: 450px) {
+    #wrapper {
         grid-template-columns: auto auto auto;
         gap: 1.5rem 0.5rem;
     }
+
     .movie-card {
         height: 150px;
         width: 100px;
     }
 }
 
-@media(max-width: 300px){
-    #wrapper{
+@media (max-width: 300px) {
+    #wrapper {
         grid-template-columns: auto auto;
         gap: 1.5rem 0.5rem;
     }
+
     .movie-card {
         height: 150px;
         width: 100px;

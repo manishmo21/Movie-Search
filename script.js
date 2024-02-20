@@ -1,51 +1,46 @@
-
-const searchBox = document.getElementById('search-box');
-const searchList = document.getElementById('search-list');
-const result = document.getElementById('result');
-const addToFavourites = document.querySelector('#add-to-fav');
+const searchBox = document.getElementById("search-box");
+const searchList = document.getElementById("search-list");
+const result = document.getElementById("result");
+const addToFavourites = document.querySelector("#add-to-fav");
 
 // Function to find movies
 function findMovies() {
-    let title = (searchBox.value).trim();
-    if (title.length > 0) {
-        searchList.classList.remove('hide-search-list');
-        loadMovies(title);
-    } else {
-        searchList.classList.add('hide-search-list');
-    }
+  let title = searchBox.value.trim();
+  if (title.length > 0) {
+    searchList.classList.remove("hide-search-list");
+    loadMovies(title);
+  } else {
+    searchList.classList.add("hide-search-list");
+  }
 }
 
 // Function to get movies from OMDB API
 async function loadMovies(title) {
-    const URL = `https://www.omdbapi.com/?apikey=cdaf1960&t=${title}&page=1`;
-    try {
-        const res = await fetch(URL);
-        const data = await res.json();
-        if (data.Response === "True") {
-            displayMovieList([data]); // Wrap the single movie object in an array
-        } else {
-            console.error("Error fetching movies:", data.Error);
-        }
-    } catch (error) {
-        console.error("Error fetching movies:", error);
+  const URL = `https://www.omdbapi.com/?apikey=cdaf1960&t=${title}&page=1`;
+  try {
+    const res = await fetch(URL);
+    const data = await res.json();
+    if (data.Response === "True") {
+      displayMovieList([data]);
+    } else {
+      console.error("Error fetching movies:", data.Error);
     }
+  } catch (error) {
+    console.error("Error fetching movies:", error);
+  }
 }
-
-
 
 // Function to display movie in search list
 function displayMovieList(movies) {
-    searchList.innerHTML = "";
-    for (let i = 0; i < movies.length; i++) {
-        let listItem = document.createElement('div');
-        listItem.dataset.id = movies[i].imdbID; // setting movie id in  data-id
-        listItem.classList.add('search-list-item');
-        if (movies[i].Poster != "N/A")
-            moviePoster = movies[i].Poster;
-        else
-            moviePoster = "assets/image_not_found.png";
+  searchList.innerHTML = "";
+  for (let i = 0; i < movies.length; i++) {
+    let listItem = document.createElement("div");
+    listItem.dataset.id = movies[i].imdbID; // setting movie id in  data-id
+    listItem.classList.add("search-list-item");
+    if (movies[i].Poster != "N/A") moviePoster = movies[i].Poster;
+    else moviePoster = "assets/image_not_found.png";
 
-        listItem.innerHTML = `
+    listItem.innerHTML = `
         <div class = "thumbnail">
             <img src = "${moviePoster}">
         </div>
@@ -54,29 +49,33 @@ function displayMovieList(movies) {
             <p>${movies[i].Year}</p>
         </div>
         `;
-        searchList.appendChild(listItem);
-    }
-    loadMovieDetails();
+    searchList.appendChild(listItem);
+  }
+  loadMovieDetails();
 }
 
 // Function to get movie details from OMDB API
 function loadMovieDetails() {
-    const searchListMovies = searchList.querySelectorAll('.search-list-item');
-    searchListMovies.forEach(movie => {
-        movie.addEventListener('click', async () => {
-            searchList.classList.add('hide-search-list');
-            searchBox.value = "";
-            const result = await fetch(`https://www.omdbapi.com/?i=${movie.dataset.id}&apikey=cdaf1960`);
-            const movieDetails = await result.json();
-            displayMovieDetails(movieDetails);
-        });
+  const searchListMovies = searchList.querySelectorAll(".search-list-item");
+  searchListMovies.forEach((movie) => {
+    movie.addEventListener("click", async () => {
+      searchList.classList.add("hide-search-list");
+      searchBox.value = "";
+      const result = await fetch(
+        `https://www.omdbapi.com/?i=${movie.dataset.id}&apikey=cdaf1960`
+      );
+      const movieDetails = await result.json();
+      displayMovieDetails(movieDetails);
     });
+  });
 }
 // Function to display movie info
 function displayMovieDetails(details) {
-    result.innerHTML = `
+  result.innerHTML = `
     <div class = "poster">
-        <img class="movie-poster" src = "${(details.Poster != "N/A") ? details.Poster : "image_not_found.png"}" alt = "movie poster">
+        <img class="movie-poster" src = "${
+          details.Poster != "N/A" ? details.Poster : "image_not_found.png"
+        }" alt = "movie poster">
     </div>
     <div class = "movie-info">
         <h3 class = "movie-title">${details.Title}</h3>
@@ -90,30 +89,31 @@ function displayMovieDetails(details) {
         <p class = "actors"><b>Actors: </b>${details.Actors}</p>
         <p class = "plot"><b>Plot:</b> ${details.Plot}</p>
         <p class = "language"><b>Language:</b> ${details.Language}</p>
-        <p class = "awards"><b><i style="color: gold;" class="fas fa-award"></i></b> ${details.Awards}</p>
+        <p class = "awards"><b><i style="color: gold;" class="fas fa-award"></i></b> ${
+          details.Awards
+        }</p>
     </div>
     `;
 }
 
 const favMovieInLocal = [];
 
-addToFavourites.addEventListener('click', function(){
-    console.log('Added');
-    let i = 0;
-    const favMovieTitle = document.querySelector('.movie-title').innerText;
-    const favMoviePoster = document.querySelector('.movie-poster').src; 
-    const favMovie = {
-        title: favMovieTitle,
-        poster: favMoviePoster
-    }
-    favMovieInLocal.push(favMovie);
-    localStorage.setItem('favMoviesArray', JSON.stringify(favMovieInLocal));
+addToFavourites.addEventListener("click", function () {
+  console.log("Added");
+  let i = 0;
+  const favMovieTitle = document.querySelector(".movie-title").innerText;
+  const favMoviePoster = document.querySelector(".movie-poster").src;
+  const favMovie = {
+    title: favMovieTitle,
+    poster: favMoviePoster,
+  };
+  favMovieInLocal.push(favMovie);
+  localStorage.setItem("favMoviesArray", JSON.stringify(favMovieInLocal));
 });
 
-
 // event listener which gets activated on clicking search box
-window.addEventListener('click', (event) => {
-    if (event.target.className != "searchBox") {
-        searchList.classList.add('hide-search-list');
-    }
+window.addEventListener("click", (event) => {
+  if (event.target.className != "searchBox") {
+    searchList.classList.add("hide-search-list");
+  }
 });

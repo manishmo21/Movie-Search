@@ -6,7 +6,7 @@
     font-family: 'Overpass', sans-serif;
 }
 
-:root{
+:root {
     --yellow: #d4aa11;
     --black: #191919;
     --lightblack: #212020;
@@ -38,7 +38,7 @@ a {
     color: #fff;
 }
 
-#favourites:hover{
+#favourites:hover {
     color: crimson;
 }
 
@@ -59,6 +59,7 @@ a {
     padding: 0 10px;
     border: none;
     border-radius: 5px;
+    margin-right: 100px;
 }
 
 /* Search list */
@@ -156,13 +157,13 @@ a {
     opacity: 0.9;
 }
 
-.movie-info .add-to-fav{
+.movie-info .add-to-fav {
     margin: 1rem 0;
     cursor: pointer;
 }
 
-.movie-info .add-to-fav:hover{
-    color:crimson;
+.movie-info .add-to-fav:hover {
+    color: crimson;
 }
 
 .movie-info .director {
@@ -197,21 +198,14 @@ a {
     margin: 1rem 0.7rem 0 0;
 }
 
-#add-to-fav{
+#add-to-fav {
     font-size: 1rem;
-    margin: 20px auto;
-    width: 250px;
-    padding: 10px;
-    text-align: center;
-    background-color: crimson;
-    color: #fff;
-    border-radius: 5px;
-    height: 50px;
-    cursor: pointer;
+    margin-right: 50px;
+    color: crimson;
 }
 
-#add-to-fav:hover{
-    background-color: gold;
+#add-to-fav:hover {
+    background-color: rgb(208, 149, 161);
 }
 
 /* Media Queries */

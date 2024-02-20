@@ -7,13 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Search</title>
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="assets/Favicon.svg">
+
 
     <!-- Fontawesome link -->
     <script src="https://kit.fontawesome.com/6766d78bed.js" crossorigin="anonymous"></script>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -21,29 +21,32 @@
     <!-- Navbar starts -->
     <nav>
         <a id="logo" href="#">
-            <img src="assets/logo.png" alt="logo" style="height: 40px; width:40px; margin-right: 10px;">
+
             <h2>Movie<span style="color:#d4aa11">Search</span></h2>
         </a>
-        <a id="favourites" href="favourites.html"><i style="color: crimson;" class="fa-solid fa-heart"></i> Favourites</a>
+        <a id="favourites" href="favourites.html"><i style="color: crimson;" class="fa-solid fa-heart"></i>
+            Favourites</a>
     </nav>
     <!-- Navbar ends -->
 
     <!-- Search section starts -->
     <div id="search-container">
+
         <input id="search-box" class="searchBox" type="text" placeholder="Search Movie Title" onkeyup="findMovies()"
             onclick="findMovies()">
+        <button id="add-to-fav"><i class="fa-solid fa-heart"></i> Make it favourite</button>
         <!-- Search list starts -->
         <div id="search-list">
-            <!-- <div class="search-list-item">
-                    <div class="thumbnail">
-                        <img src="https://m.media-amazon.com/images/M/MV5BZDA0OGQxNTItMDZkMC00N2UyLTg3MzMtYTJmNjg3Nzk5MzRiXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_SX300.jpg"
-                            alt="movie poster">
-                    </div>
-                    <div class="search-item-info">
-                        <h3>Avatar</h3>
-                        <p>2009</p>
-                    </div>
-                </div> -->
+            <div class="search-list-item">
+                <div class="thumbnail">
+                    <img src="https://m.media-amazon.com/images/M/MV5BNGViM2M4NmUtMmNkNy00MTQ5LTk5MDYtNmNhODAzODkwOTJlXkEyXkFqcGdeQXVyMTY1NDY4NTIw._V1_SX300.jpg"
+                        alt="movie poster">
+                </div>
+                <div class="search-item-info">
+                    <h3>Animal</h3>
+                    <p>2023</p>
+                </div>
+            </div>
         </div>
         <!-- Search list ends -->
     </div>
@@ -55,7 +58,8 @@
             <!-- Movie Information -->
 
             <div class="poster">
-                <img class="movie-poster" src="https://m.media-amazon.com/images/M/MV5BNGViM2M4NmUtMmNkNy00MTQ5LTk5MDYtNmNhODAzODkwOTJlXkEyXkFqcGdeQXVyMTY1NDY4NTIw._V1_SX300.jpg"
+                <img class="movie-poster"
+                    src="https://m.media-amazon.com/images/M/MV5BNGViM2M4NmUtMmNkNy00MTQ5LTk5MDYtNmNhODAzODkwOTJlXkEyXkFqcGdeQXVyMTY1NDY4NTIw._V1_SX300.jpg"
                     alt="movie poster">
             </div>
             <div class="movie-info">
@@ -63,17 +67,18 @@
                 <ul class="movie-misc-info">
                     <li class="year"><b>Year:</b> 2023</li>
                     <li class="rating"><b>Rating: PG-N/A</b></li>
-                    <li class="released"><b>Released:</b>  01 Dec 2023</li>
+                    <li class="released"><b>Released:</b> 01 Dec 2023</li>
                 </ul>
                 <p class="genre"><b>Genre:</b> Action, Crime, Drama</p>
                 <p class="director"><b>Director:</b> Sandeep Reddy Vanga</p>
                 <p class="actors"><b>Actors:</b> Ranbir Kapoor, Anil Kapoor, Bobby Deol</p>
-                <p class="plot"><b>Plot:</b> A father, who is often away due to work, is unable to comprehend the intensity of his son's fervent love and admiration, which creates conflict between both of them.</p>
+                <p class="plot"><b>Plot:</b> A father, who is often away due to work, is unable to comprehend the
+                    intensity of his son's fervent love and admiration, which creates conflict between both of them.</p>
                 <p class="language"><b>Language:</b> Hindi</p>
                 <p class="awards"><b><i style="color: gold;" class="fas fa-award"></i></b> 14 nominations</p>
             </div>
         </div>
-        <button id="add-to-fav"><i class="fa-solid fa-heart"></i> Make it favourite</button>
+
     </div>
 
     <!-- Result container ends -->
