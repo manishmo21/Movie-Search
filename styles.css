@@ -15,7 +15,7 @@
 body {
     width: 100%;
     height: 100vh;
-    background-color: var(--black);
+    background-color: rgb(28, 24, 24);
 }
 
 /* Navbar */
@@ -23,7 +23,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: var(--black);
+    background-color: rgb(45, 45, 45);
     color: #fff;
     padding: 15px;
 }
@@ -45,7 +45,7 @@ a {
 /* Search Container */
 #search-container {
     height: 200px;
-    background-color: var(--lightblack);
+    background-color: rgb(83, 81, 81);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -106,7 +106,7 @@ a {
 
 /* Result Container */
 #result-container {
-    background-color: var(--black);
+    /* background-color: var(--black);  */
     display: flex;
     flex-direction: column;
     align-items: center;
